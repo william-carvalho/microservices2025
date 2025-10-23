@@ -25,7 +25,10 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Kubernetes e Docker em Arquiteturas de Microsserviços com Spring Boot
 - [x] Kubernetes na Google Cloud com Google Kubernetes Engine
 - [x] Deploy de Microsserviços com Spring Boot e Spring Cloud em Clusters Kubernetes
-
+- [ ] Continuous Deployment na GCP com GitHub Actions, Docker e Kubernetes
+- [ ] Deploy Completo na AWS com Amazon ECS, RDS, ECR e IAM
+- [ ] Continuous Deployment na AWS com GitHub Actions, Docker, ECR e ECS
+- [ ] Integrar API's RESTful à API do ChatGPT, explorando inteligência artificial
 
 ## 💻 Pré-requisitos
 
