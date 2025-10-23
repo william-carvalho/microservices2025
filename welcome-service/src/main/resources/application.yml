@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: welcome-service
+welcome-service:
+  welcome: "Olá"
+  default-value: "Marilene"
