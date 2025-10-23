@@ -5,7 +5,7 @@ import br.com.will.utils.NumberConverter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MathService {
+public class MathServices {
 
     public Double sum(String numberOne, String numberTwo) {
         if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo))

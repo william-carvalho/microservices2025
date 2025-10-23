@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MathServiceTest {
 
-    private MathService mathService;
+    private MathServices mathService;
 
     @BeforeEach
     void setUp() {
-        mathService = new MathService();
+        mathService = new MathServices();
     }
 
     @Test

@@ -1,16 +1,15 @@
 package br.com.will.controllers;
 
-import br.com.will.exception.UnsuportedMathOperationException;
-import br.com.will.services.MathService;
+import br.com.will.services.MathServices;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/math")
 public class MathController {
 
-    private final MathService mathService;
+    private final MathServices mathService;
 
-    public MathController(MathService mathService) {
+    public MathController(MathServices mathService) {
         this.mathService = mathService;
     }
 
