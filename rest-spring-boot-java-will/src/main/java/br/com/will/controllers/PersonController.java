@@ -2,44 +2,49 @@ package br.com.will.controllers;
 
 import br.com.will.model.Person;
 import br.com.will.services.PersonServices;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person")
 public class PersonController {
 
-    @Autowired
-    private PersonServices personServices;
+    private final PersonServices personServices;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person findById(@PathVariable("id") Long id) {
-        return personServices.findById(id);
-
+    public PersonController(PersonServices personServices) {
+        this.personServices = personServices;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Person> findAll() {
-        return personServices.findAll();
+    @GetMapping("/{id}")
+    public ResponseEntity<Person> findById(@PathVariable Long id) {
+        Person person = personServices.findById(id);
+        return person != null ? ResponseEntity.ok(person) : ResponseEntity.notFound().build();
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person create(@RequestBody Person person) {
-        return personServices.create(person);
+    @GetMapping
+    public ResponseEntity<List<Person>> findAll() {
+        List<Person> persons = personServices.findAll();
+        return ResponseEntity.ok(persons);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person update(@RequestBody Person person) {
-        return personServices.update(person);
+    @PostMapping
+    public ResponseEntity<Person> create(@RequestBody Person person) {
+        Person created = personServices.create(person);
+        return ResponseEntity.status(201).body(created);
     }
 
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable("id") Long id) {
-        personServices.delete(id);
+    @PutMapping("/{id}")
+    public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
+        person.setId(id);
+        Person updated = personServices.update(person);
+        return updated != null ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        boolean deleted = personServices.delete(id);
+        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
 }
