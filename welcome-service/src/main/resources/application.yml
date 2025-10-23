@@ -3,6 +3,15 @@ server:
 spring:
   application:
     name: welcome-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 welcome-service:
   welcome: "Olá"
   default-value: "Marilene"
