@@ -22,6 +22,62 @@ public class MathController {
 
     }
 
+    @RequestMapping("/sub/{numberOne}/{numberTwo}")
+    public Double subtraction(@PathVariable("numberOne") String numberOne,
+                              @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo))
+            throw new UnsuportedMathOperationException("Please set a numeric value!");
+
+        return convertToDouble(numberOne) - convertToDouble(numberTwo);
+    }
+
+    @RequestMapping("/mult/{numberOne}/{numberTwo}")
+    public Double multiplication(@PathVariable("numberOne") String numberOne,
+                                 @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo))
+            throw new UnsuportedMathOperationException("Please set a numeric value!");
+
+        return convertToDouble(numberOne) * convertToDouble(numberTwo);
+    }
+
+    @RequestMapping("/div/{numberOne}/{numberTwo}")
+    public Double division(@PathVariable("numberOne") String numberOne,
+                           @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo))
+            throw new UnsuportedMathOperationException("Please set a numeric value!");
+
+        Double divisor = convertToDouble(numberTwo);
+        if (divisor == 0) throw new UnsuportedMathOperationException("Division by zero is not allowed!");
+
+        return convertToDouble(numberOne) / divisor;
+    }
+
+    @RequestMapping("/avg/{numberOne}/{numberTwo}")
+    public Double average(@PathVariable("numberOne") String numberOne,
+                          @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo))
+            throw new UnsuportedMathOperationException("Please set a numeric value!");
+
+        return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
+    }
+
+    @RequestMapping("/sqrt/{number}")
+    public Double squareRoot(@PathVariable("number") String number) throws Exception {
+
+        if (!isNumeric(number))
+            throw new UnsuportedMathOperationException("Please set a numeric value!");
+
+        Double value = convertToDouble(number);
+        if (value < 0D) throw new UnsuportedMathOperationException("Cannot calculate square root of a negative number!");
+
+        return Math.sqrt(value);
+    }
+
+
     private Double convertToDouble(String strNumber) throws IllegalArgumentException {
 
         if (StringUtils.isEmpty(strNumber)) throw new UnsuportedMathOperationException("Please set a numeric value!");
