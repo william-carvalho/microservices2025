@@ -6,8 +6,6 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="imagem.png" alt="Exemplo imagem">
-
 > Projeto voltado à criação, integração e deploy de microsserviços com Spring Boot e Spring Cloud, executados em contêineres Docker e orquestrados via Kubernetes. Foco em escalabilidade, resiliência e observabilidade.
 
 ### Ajustes e melhorias
