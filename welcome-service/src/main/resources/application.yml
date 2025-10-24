@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: welcome-service
+  config:
+    import: optional:configserver:http://localhost:8888/
 management:
   endpoints:
     web:
@@ -12,6 +14,3 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-welcome-service:
-  welcome: "Olá"
-  default-value: "Marilene"

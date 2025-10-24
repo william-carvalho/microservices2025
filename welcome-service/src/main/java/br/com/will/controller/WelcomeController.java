@@ -21,8 +21,8 @@ public class WelcomeController {
     // http://localhost:8080/welcome?name=will
     @RequestMapping("/welcome")
     public Welcome greeting(@RequestParam(value = "name", defaultValue = "") String name) {
-        if (name.isEmpty()) name =  configuration.defaultValue();
-        return new Welcome(counter.incrementAndGet(), String.format(template, configuration.welcome(), name));
+        if (name.isEmpty()) name =  configuration.getDefaultValue();
+        return new Welcome(counter.incrementAndGet(), String.format(template, configuration.getWelcome(), name));
 
     }
 }
