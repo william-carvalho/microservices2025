@@ -1,1 +1,4 @@
+br\com\will\model\Exchange.class
+br\com\will\enviroment\InstanceInformationService.class
+br\com\will\controller\ExchangeController.class
 br\com\will\ExchangeServiceApplication.class
