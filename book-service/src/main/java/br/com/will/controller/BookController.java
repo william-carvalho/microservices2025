@@ -49,7 +49,7 @@ public class BookController {
 
         var book = bookRepository.findById(id).orElseThrow();
 
-       ExchangeDto exchangeDto = exchangeProxy.getExchange(book.getPrice(), "USD", currency);
+        ExchangeDto exchangeDto = exchangeProxy.getExchange(book.getPrice(), "USD", currency);
 
         book.setEnviroment(port);
         book.setPrice(exchangeDto.getConvertedValue());
