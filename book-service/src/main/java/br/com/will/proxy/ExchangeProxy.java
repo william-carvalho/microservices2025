@@ -2,13 +2,12 @@ package br.com.will.proxy;
 
 import br.com.will.dto.ExchangeDto;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 
-@FeignClient(name = "exchange-service", url = "localhost:8000" )
+@FeignClient(name = "exchange-service")
 public interface ExchangeProxy {
 
     @GetMapping(value = "/exchange-service/{amount}/{from}/{to}")
