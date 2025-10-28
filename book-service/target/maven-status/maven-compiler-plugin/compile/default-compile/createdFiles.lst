@@ -1,4 +1,7 @@
 br\com\will\controller\BookController.class
+br\com\will\dto\ExchangeDto.class
 br\com\will\enverionment\InstanceInformationService.class
+br\com\will\repository\BookRepository.class
 br\com\will\model\Book.class
 br\com\will\BookServiceApplication.class
+br\com\will\proxy\ExchangeProxy.class
