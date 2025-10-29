@@ -32,7 +32,7 @@ public class BookController {
     @Autowired
     private ExchangeProxy exchangeProxy;
 
-    @GetMapping(value ="/first/{id}/{currency}", produces = MediaType.APPLICATION_JSON_VALUE)
+ /*   @GetMapping(value ="/first/{id}/{currency}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Book findBookFirst(@PathVariable("id") Long id, @PathVariable("currency") String currency){
 
         String port = instanceInformationService.retrieveServerPort();
@@ -43,10 +43,10 @@ public class BookController {
         book.setCurrency(currency);
 
         return book;
-    }
+    }*/
 
     @Operation(summary = "Find a specific book by your ID")
-    @GetMapping(value ="/{id}/{currency}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value ="/{id}/{currency}")
     public Book findBook(@PathVariable("id") Long id, @PathVariable("currency") String currency){
 
         String port = instanceInformationService.retrieveServerPort();

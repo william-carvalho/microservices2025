@@ -1,3 +1,4 @@
+br\com\will\config\OpenApiConfiguration.class
 br\com\will\model\Exchange.class
 br\com\will\enviroment\InstanceInformationService.class
 br\com\will\repository\ExchangeRepository.class
